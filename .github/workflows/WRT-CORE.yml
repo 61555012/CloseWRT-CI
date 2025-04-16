@@ -95,6 +95,8 @@ jobs:
         run: |
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
+          git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter ./wrt/ 
+
           cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
 
           # 如果不存在 defconfig 则直接结束工作流
