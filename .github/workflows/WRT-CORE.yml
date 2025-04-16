@@ -95,7 +95,7 @@ jobs:
         run: |
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/
 
-          git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter ./wrt/ 
+          git clone https://github.com/destan19/OpenAppFilter.git ./wrt/package/OpenAppFilter
 
           cd ./wrt/ && echo "WRT_HASH=$(git log -1 --pretty=format:'%h')" >> $GITHUB_ENV
 
