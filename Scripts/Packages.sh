@@ -30,6 +30,10 @@ UPDATE_PACKAGE() {
 
 	# 克隆 GitHub 仓库
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
+    git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/lucky
+	git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
+	git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+    git_sparse_clone main https://github.com/linkease/istore luci
 
 	# 处理克隆的仓库
 	if [[ "$PKG_SPECIAL" == "pkg" ]]; then
@@ -49,10 +53,6 @@ UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
 UPDATE_PACKAGE "aurora-config" "eamonxg/luci-app-aurora-config" "master"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "master"
 UPDATE_PACKAGE "kucat-config" "sirpdboy/luci-app-kucat-config" "master"
-UPDATE_PACKAGE "xwan" "x-wrt/com.x-wrt luci-app-xwan" "master"
-UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "master"
-
-
 
 UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 UPDATE_PACKAGE "momo" "nikkinikki-org/OpenWrt-momo" "main"
