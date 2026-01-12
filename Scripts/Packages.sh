@@ -30,10 +30,9 @@ UPDATE_PACKAGE() {
 
 	# 克隆 GitHub 仓库
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
-    git clone --depth=1 -b main https://github.com/gdy666/luci-app-lucky package/lucky
-	git_sparse_clone master https://github.com/x-wrt/com.x-wrt luci-app-xwan
-	git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
-    git_sparse_clone main https://github.com/linkease/istore luci
+    git clone https://github.com/sirpdboy/luci-app-lucky.git package/lucky
+	git clone https://github.com/61555012/luci-app-xwan package/luci-app-xwan
+
 
 	# 处理克隆的仓库
 	if [[ "$PKG_SPECIAL" == "pkg" ]]; then
